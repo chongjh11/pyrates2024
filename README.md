@@ -8,4 +8,6 @@ Plotting the results from Pylith:
 
 | Steps | Input | Output | Code   |
 |-------|-------|--------|------  |
-|Running the example from Pylith| Example model | The displacement product | Pylith |
+|Running the example from Pylith| Example model |  | Pylith |
+|Pylith generates displacement | | Displacement product in .hdf5 | Pylith|
+|Plot displacement along with geometry in python | Displacement, geometry||Python|
