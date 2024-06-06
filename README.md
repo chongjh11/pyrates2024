@@ -1,4 +1,4 @@
-https://doi.org/10.5281/zenodo.11508493
+[![DOI](https://zenodo.org/badge/810518001.svg)](https://zenodo.org/doi/10.5281/zenodo.11508492)
 # pyrates2024
 ### Project idea: 
 Plotting the results from **Pylith** of a 2D transect:
