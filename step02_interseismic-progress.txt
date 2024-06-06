@@ -1,0 +1,22 @@
+Timestamp                     Simulation t   % complete   Est. completion
+Mon May  6 10:52:43 2024       0.00*year              0   TBD
+Mon May  6 10:52:45 2024      15.00*year              7   Mon May  6 10:53:13 2024
+Mon May  6 10:52:46 2024      30.00*year             11   Mon May  6 10:53:09 2024
+Mon May  6 10:52:47 2024      45.00*year             16   Mon May  6 10:53:07 2024
+Mon May  6 10:52:49 2024      60.00*year             21   Mon May  6 10:53:11 2024
+Mon May  6 10:52:50 2024      75.00*year             26   Mon May  6 10:53:09 2024
+Mon May  6 10:52:51 2024      90.00*year             31   Mon May  6 10:53:08 2024
+Mon May  6 10:52:52 2024     105.00*year             36   Mon May  6 10:53:07 2024
+Mon May  6 10:52:53 2024     120.00*year             41   Mon May  6 10:53:07 2024
+Mon May  6 10:52:55 2024     135.00*year             46   Mon May  6 10:53:09 2024
+Mon May  6 10:52:56 2024     150.00*year             51   Mon May  6 10:53:08 2024
+Mon May  6 10:52:57 2024     165.00*year             56   Mon May  6 10:53:08 2024
+Mon May  6 10:52:58 2024     180.00*year             61   Mon May  6 10:53:07 2024
+Mon May  6 10:52:59 2024     195.00*year             66   Mon May  6 10:53:07 2024
+Mon May  6 10:53:00 2024     210.00*year             70   Mon May  6 10:53:07 2024
+Mon May  6 10:53:01 2024     225.00*year             75   Mon May  6 10:53:06 2024
+Mon May  6 10:53:03 2024     240.00*year             80   Mon May  6 10:53:07 2024
+Mon May  6 10:53:04 2024     255.00*year             85   Mon May  6 10:53:07 2024
+Mon May  6 10:53:05 2024     270.00*year             90   Mon May  6 10:53:07 2024
+Mon May  6 10:53:06 2024     285.00*year             95   Mon May  6 10:53:07 2024
+Mon May  6 10:53:07 2024     305.00*year            102   Mon May  6 10:53:06 2024

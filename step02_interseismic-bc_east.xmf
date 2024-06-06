@@ -1,0 +1,2336 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" [
+<!ENTITY HeavyData "step02_interseismic-bc_east.h5">
+]>
+
+<Xdmf>
+  <Domain Name="domain">
+    <DataItem Name="cells" ItemType="Uniform" Format="HDF" NumberType="Float" Precision="8" Dimensions="29 2">
+      &HeavyData;:/viz/topology/cells
+    </DataItem>
+    <DataItem Name="vertices" ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+      <DataItem Name="verticesX" ItemType="Hyperslab" Type="HyperSlab" Dimensions="30 1">
+        <DataItem Dimensions="3 2" Format="XML">
+          0 0   1 1   30 1
+        </DataItem>
+        <DataItem Dimensions="30 1" Format="HDF">
+          &HeavyData;:/geometry/vertices
+        </DataItem>
+      </DataItem>
+      <DataItem Name="verticesY" ItemType="Hyperslab" Type="HyperSlab" Dimensions="30 1">
+        <DataItem Dimensions="3 2" Format="XML">
+          0 1   1 1   30 1
+        </DataItem>
+        <DataItem Dimensions="30 1" Format="HDF">
+          &HeavyData;:/geometry/vertices
+        </DataItem>
+      </DataItem>
+      <DataItem Name="verticesZ" ItemType="Function" Dimensions="30 1" Function="0*$0">
+        <DataItem Reference="XML">
+          /Xdmf/Domain/DataItem[@Name="vertices"]/DataItem[@Name="verticesX"]
+        </DataItem>
+      </DataItem>
+    </DataItem>
+    <Grid Name="TimeSeries" GridType="Collection" CollectionType="Temporal">
+      <Time TimeType="List">
+        <DataItem Format="XML" NumberType="Float" Dimensions="62">
+            0.00000000e+00    1.57788000e+08    3.15576000e+08    4.73364000e+08    6.31152000e+08    7.88940000e+08    9.46728000e+08    1.10451600e+09    1.26230400e+09    1.42009200e+09    1.57788000e+09    1.73566800e+09    1.89345600e+09    2.05124400e+09    2.20903200e+09    2.36682000e+09    2.52460800e+09    2.68239600e+09    2.84018400e+09    2.99797200e+09    3.15576000e+09    3.31354800e+09    3.47133600e+09    3.62912400e+09    3.78691200e+09    3.94470000e+09    4.10248800e+09    4.26027600e+09    4.41806400e+09    4.57585200e+09    4.73364000e+09    4.89142800e+09    5.04921600e+09    5.20700400e+09    5.36479200e+09    5.52258000e+09    5.68036800e+09    5.83815600e+09    5.99594400e+09    6.15373200e+09    6.31152000e+09    6.46930800e+09    6.62709600e+09    6.78488400e+09    6.94267200e+09    7.10046000e+09    7.25824800e+09    7.41603600e+09    7.57382400e+09    7.73161200e+09    7.88940000e+09    8.04718800e+09    8.20497600e+09    8.36276400e+09    8.52055200e+09    8.67834000e+09    8.83612800e+09    8.99391600e+09    9.15170400e+09    9.30949200e+09    9.46728000e+09    9.62506800e+09
+        </DataItem>
+      </Time>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                0 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                0 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                1 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                1 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                2 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                2 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                3 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                3 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                4 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                4 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                5 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                5 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                6 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                6 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                7 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                7 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                8 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                8 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                9 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                9 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                10 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                10 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                11 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                11 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                12 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                12 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                13 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                13 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                14 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                14 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                15 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                15 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                16 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                16 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                17 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                17 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                18 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                18 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                19 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                19 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                20 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                20 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                21 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                21 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                22 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                22 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                23 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                23 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                24 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                24 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                25 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                25 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                26 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                26 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                27 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                27 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                28 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                28 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                29 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                29 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                30 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                30 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                31 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                31 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                32 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                32 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                33 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                33 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                34 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                34 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                35 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                35 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                36 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                36 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                37 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                37 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                38 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                38 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                39 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                39 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                40 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                40 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                41 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                41 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                42 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                42 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                43 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                43 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                44 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                44 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                45 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                45 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                46 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                46 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                47 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                47 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                48 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                48 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                49 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                49 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                50 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                50 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                51 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                51 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                52 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                52 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                53 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                53 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                54 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                54 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                55 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                55 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                56 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                56 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                57 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                57 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                58 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                58 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                59 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                59 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                60 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                60 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="domain" GridType="Uniform">
+        <Topology TopologyType="Polyline" NumberOfElements="29">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="cells"]
+          </DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Reference="XML">
+            /Xdmf/Domain/DataItem[@Name="vertices"]
+          </DataItem>
+        </Geometry>
+        <Attribute Name="displacement" Type="Vector" Center="Node">
+          <DataItem ItemType="Function" Dimensions="30 3" Function="JOIN($0, $1, $2)">
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                61 0 0    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="HyperSlab" Dimensions="30 1" Type="HyperSlab">
+              <DataItem Dimensions="3 3" Format="XML">
+                61 0 1    1 1 1    1 30 1
+              </DataItem>
+              <DataItem DataType="Float" Precision="8" Dimensions="62 30 2" Format="HDF">
+                &HeavyData;:/vertex_fields/displacement
+              </DataItem>
+            </DataItem>
+            <DataItem ItemType="Function" Dimensions="30 1" Function="0*$0">
+              <DataItem Reference="XML">
+                /Xdmf/Domain/Grid/Grid[1]/Attribute[@Name="displacement"]/DataItem[1]/DataItem[1]
+              </DataItem>
+            </DataItem>
+          </DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
