@@ -9,7 +9,7 @@ Plotting the results from Pylith of a 2D transect:
 | Steps | Input | Output | Code   |
 |-------|-------|--------|------  |
 |Running a 2D example from Pylith| Example model |  | Pylith |
-|Pylith generates displacement | | Displacement product in .hdf5 | Pylith|
+|Pylith generates displacement | | Displacement product in `.hdf5` | Pylith|
 |Plot displacement along with geometry in python | Displacement, geometry||Python|
 |Plot the difference between observation and model|||Python|
 |Do simple RMSE, stats calculation|||Python|
