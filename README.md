@@ -6,3 +6,6 @@ Plotting the results from Pylith:
 
 ### Workflow (outline) 
 
+| Step | Input | Output | Code |
+|------|-------|--------|------|
+|
