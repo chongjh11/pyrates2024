@@ -8,4 +8,4 @@ Plotting the results from Pylith:
 
 | Steps | Input | Output | Code   |
 |-------|-------|--------|------  |
-|
+|Running the example from Pylith| Example model | The displacement product | Pylith |
