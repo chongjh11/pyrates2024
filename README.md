@@ -1,6 +1,6 @@
 # pyrates2024
 ### Project idea: 
-Plotting the results from Pylith of a 2D transect:
+Plotting the results from **Pylith** of a 2D transect:
 1. Displacement from model and observation
 2. Analysis of results
 
