@@ -1,3 +1,4 @@
+https://doi.org/10.5281/zenodo.11508493
 # pyrates2024
 ### Project idea: 
 Plotting the results from **Pylith** of a 2D transect:
