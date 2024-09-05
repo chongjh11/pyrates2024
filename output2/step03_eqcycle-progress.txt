@@ -1,0 +1,22 @@
+Timestamp                     Simulation t   % complete   Est. completion
+Thu Jul 18 11:14:16 2024      -3.00*year              0   TBD
+Thu Jul 18 11:14:18 2024      21.00*year              5   Thu Jul 18 11:14:54 2024
+Thu Jul 18 11:14:21 2024      47.00*year             10   Thu Jul 18 11:15:04 2024
+Thu Jul 18 11:14:23 2024      71.00*year             15   Thu Jul 18 11:15:02 2024
+Thu Jul 18 11:14:25 2024      97.00*year             20   Thu Jul 18 11:15:00 2024
+Thu Jul 18 11:14:28 2024     123.00*year             25   Thu Jul 18 11:15:03 2024
+Thu Jul 18 11:14:30 2024     147.00*year             30   Thu Jul 18 11:15:02 2024
+Thu Jul 18 11:14:32 2024     173.00*year             35   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:34 2024     197.00*year             40   Thu Jul 18 11:15:00 2024
+Thu Jul 18 11:14:37 2024     223.00*year             45   Thu Jul 18 11:15:02 2024
+Thu Jul 18 11:14:39 2024     249.00*year             50   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:41 2024     273.00*year             55   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:43 2024     299.00*year             60   Thu Jul 18 11:15:00 2024
+Thu Jul 18 11:14:46 2024     325.00*year             65   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:48 2024     349.00*year             70   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:50 2024     375.00*year             75   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:52 2024     399.00*year             80   Thu Jul 18 11:15:00 2024
+Thu Jul 18 11:14:54 2024     425.00*year             85   Thu Jul 18 11:15:00 2024
+Thu Jul 18 11:14:57 2024     451.00*year             90   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:14:59 2024     475.00*year             95   Thu Jul 18 11:15:01 2024
+Thu Jul 18 11:15:01 2024     501.00*year            100   Thu Jul 18 11:15:00 2024
