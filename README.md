@@ -13,5 +13,4 @@ Plotting the results from **Pylith** of a 2D transect:
 |Pylith generates displacement | | Displacement product in `.hdf5` | Pylith|
 |Plot displacement along with geometry in python | Displacement, geometry||Python|
 |Plot the difference between observation and model|||Python|
-|Do simple RMSE, stats calculation|||Python|
 
