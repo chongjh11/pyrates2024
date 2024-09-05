@@ -11,6 +11,10 @@ Plotting the results from **Pylith** of a 2D transect:
 |-------|-------|--------|------  |
 |Running a 2D example from Pylith| Example model |  | Pylith |
 |Pylith generates displacement | | Displacement product in `.hdf5` | Pylith|
-|Plot displacement along with geometry in python | Displacement, geometry||Python|
+|Plot displacement along with geometry in python | Displacement, geometry||Python (GitHub)|
 |Plot the difference between observation and model|||Python|
+
+### Steps ###
+1. Run Pylith models
+2. Run Python script `Pylith-plot-test.ipynb`
 
